@@ -26,11 +26,20 @@ class InterviewQuestionSet(models.Model):
         related_name="interview_question_sets"
     )
 
-    technical_questions = models.JSONField(default=list)
+    technical_questions = models.JSONField(
+        default=list,
+        blank=True
+    )
 
-    behavioral_questions = models.JSONField(default=list)
+    behavioral_questions = models.JSONField(
+        default=list,
+        blank=True
+    )
 
-    follow_up_questions = models.JSONField(default=list)
+    follow_up_questions = models.JSONField(
+        default=list,
+        blank=True
+    )
 
     generated_at = models.DateTimeField(auto_now_add=True)
 

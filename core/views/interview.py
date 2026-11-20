@@ -1,23 +1,22 @@
 
 from django.shortcuts import get_object_or_404
 
-from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from core.models import InterviewQuestionSet
 from core.serializers import InterviewQuestionSetSerializer
 
 
-class InterviewQuestionSetDetailAPIView(APIView):
+@api_view(['GET'])
+def interview_question_set_detail(request, pk):
+    question_set = get_object_or_404(
+        InterviewQuestionSet,
+        pk=pk
+    )
 
-    def get(self, request, pk):
-        question_set = get_object_or_404(
-            InterviewQuestionSet,
-            pk=pk
-        )
+    serializer = InterviewQuestionSetSerializer(
+        question_set
+    )
 
-        serializer = InterviewQuestionSetSerializer(
-            question_set
-        )
-
-        return Response(serializer.data)
+    return Response(serializer.data)

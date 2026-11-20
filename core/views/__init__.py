@@ -1,6 +1,11 @@
-from .department import DepartmentCreateAPIView
-from .job_position import JobPositionCreateAPIView
-from .candidate import CandidateCreateAPIView
-from .resume import ResumeUploadAPIView
-from .screening import ScreeningResultDetailAPIView
-from .interview import InterviewQuestionSetDetailAPIView
+
+from django.urls import path
+from core.views.interview import interview_question_set_detail
+
+urlpatterns = [
+    path(
+        'interview-questions/<int:pk>/',
+        interview_question_set_detail,
+        name='interview-question-detail'
+    ),
+]

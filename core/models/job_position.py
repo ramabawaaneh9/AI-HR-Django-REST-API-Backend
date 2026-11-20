@@ -1,3 +1,4 @@
+
 from django.db import models
 from .department import Department
 
@@ -11,7 +12,10 @@ class JobPosition(models.Model):
 
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    required_skills = models.JSONField(default=list)
+    required_skills = models.JSONField(
+        default=list,
+        blank=True
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

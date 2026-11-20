@@ -32,9 +32,15 @@ class ScreeningResult(models.Model):
         ]
     )
 
-    strengths = models.JSONField(default=list)
+    strengths = models.JSONField(
+        default=list,
+        blank=True
+    )
 
-    missing_skills = models.JSONField(default=list)
+    missing_skills = models.JSONField(
+        default=list,
+        blank=True
+    )
 
     recommendation = models.CharField(
         max_length=10,
@@ -43,7 +49,10 @@ class ScreeningResult(models.Model):
 
     summary = models.TextField()
 
-    raw_report = models.JSONField(default=dict)
+    raw_report = models.JSONField(
+        default=dict,
+        blank=True
+    )
 
     generated_at = models.DateTimeField(auto_now_add=True)
 

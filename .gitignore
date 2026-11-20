@@ -27,3 +27,7 @@ db.sqlite3
 # System files
 .DS_Store
 Thumbs.db
+
+# Local test files
+test_cv.txt
+large_test_cv.txt

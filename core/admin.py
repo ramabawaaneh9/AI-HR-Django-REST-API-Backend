@@ -68,7 +68,7 @@ class InterviewQuestionSetAdmin(admin.ModelAdmin):
         "candidate__full_name",
         "job_position__title",
     )
-    list_filter = ("generated_at",)
+    list_filter = ("job_position", "recommendation", "generated_at")
 
 
 # Register your models here.

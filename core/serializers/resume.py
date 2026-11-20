@@ -32,4 +32,11 @@ class ResumeSerializer(serializers.ModelSerializer):
                 "Only PDF, DOCX and TXT files are allowed."
             )
 
+        max_size = 5 * 1024 * 1024
+
+        if value.size > max_size:
+            raise serializers.ValidationError(
+                "File size must not exceed 5 MB."
+            )
+
         return value
